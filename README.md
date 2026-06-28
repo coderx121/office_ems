@@ -1,29 +1,48 @@
-# Office Employee Management System
 
-A Django-based EMS with user authentication, employee profiles, and AI-driven productivity insights.
-
-## Features
-- User signup and login.
-- Employee profile management with document uploads.
-- AI-driven productivity insights (basic).
-
-## Setup
-1. Clone the repository: `git clone <your-repo-url>`
-2. Activate virtual environment: `& D:\office_ems\venv\Scripts\Activate.ps1`
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run migrations: `python manage.py migrate`
-5. Start the server: `python manage.py runserver`
+Note: Use django-environ or similar packages to load environment variables securely in production.
 
 ## Usage
-- Access at `http://127.0.0.1:8000/`.
-- Sign up at `/signup/` or log in at `/accounts/login/`.
-- Manage profiles via `/admin/`.
+- Home site: http://127.0.0.1:8000/
+- Sign up: /signup/
+- Login: /accounts/login/
+- Admin interface: /admin/ (requires superuser)
+- Employee profile management is available through the web UI once authenticated.
 
-## Technologies
-- Django 5.2.5
-- Python 3.10+
-- scikit-learn (for AI insights)
-- Bootstrap 5.3
+The AI-driven insights are implemented internally (see the codebase for the model and inference utilities). They provide basic productivity metrics and recommendations based on available employee data.
+
+## Development
+- Run tests:
+  python manage.py test
+- Linting and formatting:
+  - Use flake8 or pylint for linting
+  - Use black for formatting
+- Create feature branches for new work:
+  git checkout -b feat/your-feature
+- Commit messages should be clear and reference related issues when applicable.
+
+If you intend to switch from SQLite to PostgreSQL in production, update DATABASES in settings and ensure psycopg2 (or psycopg2-binary) is installed.
+
+## Project Structure (high-level)
+- manage.py — Django management script
+- requirements.txt — Python dependencies
+- project/ — Django project settings and URLs
+- apps/ or employees/ — Application modules (models, views, templates)
+- templates/ — HTML templates
+- static/ — CSS, JS, images
+- media/ — Uploaded documents (configure MEDIA_ROOT)
+- docs/ — Documentation (optional)
+
+(Refer to the repository for the exact module and package names.)
+
+## Contributing
+Contributions are welcome. Suggested workflow:
+1. Fork the repository
+2. Create a branch for your changes
+3. Open a pull request with a clear description of your changes
+Please include tests for new features or bug fixes. Follow coding style and maintain consistency with existing patterns.
 
 ## License
-MIT License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+For questions or support, open an issue in this repository or contact the maintainer.
